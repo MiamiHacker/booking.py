@@ -87,18 +87,18 @@ def my_options():
         brk_opt_sum = 18
         option_price = brk_opt_sum
         global option_order_breakfast
-        option_order_breakfast = true
+        option_order_breakfast = True
         brk_opt_sum = option_price
     elif option_order == "bedsheets":
         option_price = 20 # price not in days 
         global option_order_bedsheets
-        option_order_bedsheets = true
+        option_order_bedsheets = True
         global bed_opt_sum
         bed_opt_sum = option_price
     elif option_order == "both":
         option_price = 18
         global option_order_both
-        option_order_both = true
+        option_order_both = True
         global both_opt_sum
         both_opt_sum = option_price
     else:
@@ -110,17 +110,17 @@ my_options()
 #Functions for my breakfast 
 def my_breakfast():
     global opt_sum
-    if option_order_breakfast != true and option_order_both == true:
+    if option_order_breakfast != True and option_order_both == True:
         brk_opt_sum = 0
-    elif option_order_breakfast == true:
+    elif option_order_breakfast == True:
         brk_opt_sum = 18
         print("Breakfast for", quantity, "days is $", brk_opt_sum * quantity)
         opt_sum = brk_opt_sum * quantity
-    elif option_order_breakfast != true and option_order_both == true:
+    elif option_order_breakfast != True and option_order_both == True:
         brk_opt_sum = brk_opt_sum
         global both_opt_sum
         both_opt_sum = (brk_opt_sum * quantity) + bed_opt_sum
-    elif option_order_breakfast != true and option_order_both != true:
+    elif option_order_breakfast != True and option_order_both != True:
         brk_opt_sum = 0
         both_opt_sum = (brk_opt_sum * quantity) + bed_opt_sum
 my_breakfast()
@@ -129,14 +129,14 @@ my_breakfast()
 def my_bedsheets():
     global bed_opt_sum
     bed_opt_sum = 20
-    if option_order_bedsheets != true:
+    if option_order_bedsheets != True:
         bed_opt_sum = 0
-    elif option_order_bedsheets == true and accommodation_order != ("hotel"):
+    elif option_order_bedsheets == True and accommodation_order != ("hotel"):
         print("@@@Bedsheets for $", bed_opt_sum)
         global opt_sum
         opt_sum = bed_opt_sum
         print("Local:", opt_sum)
-    elif option_order_bedsheets == true and accommodation_order == ("hotel"):
+    elif option_order_bedsheets == True and accommodation_order == ("hotel"):
         bed_opt_sum = 0
         print("Bedsheets are for free")
 my_bedsheets()
@@ -144,13 +144,13 @@ my_bedsheets()
 #Function for Both (Breakfast & Bedsheets)
 def my_bothOption():
     global opt_sum
-    if option_order_both == true and accommodation_order != ("hotel"):
+    if option_order_both == True and accommodation_order != ("hotel"):
         brk_opt_sum = 18
         bed_opt_sum = 20
         opt_sum = (brk_opt_sum * quantity) + bed_opt_sum
         print(">>>Bedsheets $", bed_opt_sum)
         print("Breakfast for", quantity, "days is $", brk_opt_sum * quantity)
-    elif option_order_both == true and accommodation_order == ("hotel"):
+    elif option_order_both == True and accommodation_order == ("hotel"):
         brk_opt_sum = 18
         opt_sum = (brk_opt_sum * quantity)
         print("Breakfast for", quantity, "days is $", opt_sum)
